@@ -1,0 +1,85 @@
+<!--dev.w3.org/html5/spec/Overview,html#the-canvas-element-->
+
+<!--dev.w3.org/html5/2dcontext/-->
+
+<!DOCTYPE html>
+<html>
+<head>
+		<title>
+        	Ejemplo de html 5
+		</title>
+		<script type="text/javascript">
+			function cargador()
+			{
+				var lienzo=document.getElementById('lienzo');
+				var lienzo1=lienzo.getContext('2d');
+				lienzo1.fillStyle="rgba(0,0,200,1)";
+				lienzo1.fillRect(45,50,100,50);	
+				lienzo1.fillStyle="rgba(200,0,0,0.5)";
+				lienzo1.fillRect(100,500,150,80);
+				lienzo1.fillStyle="rgba(0,200,0,1)";
+				lienzo1.fillRect(250,50,100,500);
+				lienzo1.fillStyle="rgba(100,155,0,0.8)";
+				lienzo1.fillRect(350,150,50,200);
+
+				//crear lineas con triangulo
+				lienzo1.beginPath();
+				lienzo1.strokeStyle="rgba(120,100,100,0.8)";
+				lienzo1.moveTo(200,405);
+				lienzo1.lineTo(200,175);
+				lienzo1.lineTo(60,405);
+				lienzo1.closePath();
+				// para que muestre nuestro dibujo debo escribir la siguiente sentencia
+				lienzo1.stroke();
+				
+				//crear lineas con triangulo
+				lienzo1.beginPath();
+				lienzo1.strokeStyle="rgba(20,200,100,0.5)";
+				lienzo1.moveTo(400,405);
+				lienzo1.lineTo(400,375);
+				lienzo1.lineTo(260,405);
+				lienzo1.closePath();
+				// para que muestre nuestro dibujo debo escribir la siguiente sentencia
+				lienzo1.stroke();	
+				
+				//crear lineas con triangulo
+				//para la creacion del mismo primero:
+				// empezamos lienzo.beginPath() esta funcion no recibe ningun parametro 
+				//con esta funcion le diremos a canvas que empezaremos a dibujar un caminito
+				lienzo1.beginPath();
+				lienzo1.strokeStyle="rgba(150,200,80,1)";
+                //la siguiente funcion moveTo() Sirve para mover el puntero imaginario donde empezaremos a hacer el camino. 
+                //Esta funcion no dibuja nada en si, pero define el primer punto de un camino
+                //moveTo(x,y) x, y definen el lugar de donde el puntero saldra o empezara 
+				lienzo1.moveTo(500,305);
+
+				//Esta funcion produce que se sibuje la linea recta, desde la posicion 
+				//actual del puntero hasta (x,y) que se recibe como parametro la funcion
+				//Si no se indico antes una posicion de nuestro puntero de dibujo lineTo()
+				//sera el equivalente de moveTo()
+				lienzo1.lineTo(100,75);
+				lienzo1.lineTo(460,305);
+				lienzo1.closePath();
+				// para que muestre nuestro dibujo debo escribir la siguiente sentencia
+				lienzo1.stroke();	
+
+			//creacion de un triangulo 
+		    lienzo1.fillStyle="rgba(125,0,125,0.5)";
+		    lienzo1.beginPath();
+		    lienzo1.moveTo(255,5);
+		    lienzo1.lineTo(305,5);
+		    lienzo1.lineTo(255,200);
+		    lienzo1.closePath();
+            //la siguiente linea esta encargada de dibujar un triangulo 
+		    lienzo1.fill();
+		    							}
+		</script>
+     
+</head>
+<body onload="cargador()">
+	<h1>Hola Html 5</h1>
+	<canvas id="lienzo" width="600" height="500">
+	</canvas>
+
+</body>
+</html>	
